@@ -1,14 +1,11 @@
-'use strict';
-const chai = require('chai');
-const expect = chai.expect;
-
-const Pollify = require('..');
+import { expect } from 'chai';
+import Pollify from '../src';
 
 describe('Pollify', function () {
   const rate = 20;
 
   it('starts polling automatically', function (done) {
-    const times = [];
+    const times: number[] = [];
     const maxPolls = 2;
     const poll = Pollify({ rate, mode: 'return' }, () => '');
 
@@ -24,7 +21,7 @@ describe('Pollify', function () {
   });
   it('can be provided a variable number of arguments for the poll function', function (done) {
     const randLength = Math.ceil(Math.random() * 10) + 5;
-    const randomArray = [];
+    const randomArray: any[] = [];
     for (let i = 0; i < randLength; ++i) {
       randomArray.push(i);
     }
@@ -80,7 +77,7 @@ describe('Pollify', function () {
     });
   });
   it('does not have any effect when repeated start calls are made', function (done) {
-    const times = [];
+    const times: number[] = [];
     const maxPolls = 10;
     const poll = Pollify({ rate, mode: 'return' }, () => '');
     poll.start();

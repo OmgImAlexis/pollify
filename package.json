@@ -2,12 +2,13 @@
   "name": "pollify",
   "version": "1.0.2",
   "description": "Produces a stream of events by polling a provided function at a given rate. This rate is the minimum rate, not the exact rate (similar to setTimeout). The provided function is only polled when the previous execution has completed. This has the effect of making async calls execute in series.",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "lint": "eslint --ignore-path .gitignore . --cache",
-    "pretest": "npm run lint",
-    "test": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter spec --recursive test/",
-    "posttest": "istanbul check-coverage"
+    "prepare": "npm run build",
+    "build": "tsup ./src/index.ts --dts",
+    "test": "ts-mocha ./test/**/*.spec.ts --timeout 10000",
+    "test:coverage": "nyc --reporter=html --reporter=text --reporter=text-summary npm test"
   },
   "repository": {
     "type": "git",
@@ -27,10 +28,28 @@
   },
   "homepage": "https://github.com/lobabob/eventstream#readme",
   "devDependencies": {
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.4.1",
     "chai": "^3.5.0",
-    "eslint": "^3.16.1",
-    "eslint-plugin-promise": "^3.4.2",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.2.0"
+    "mocha": "^3.5.3",
+    "nyc": "^15.1.0",
+    "ts-mocha": "^8.0.0",
+    "tsup": "^4.12.5",
+    "typescript": "^4.3.5"
+  },
+  "nyc": {
+    "cache": false,
+    "extension": [
+      ".ts"
+    ],
+    "check-coverage": true,
+    "include": [
+      "src/**"
+    ],
+    "statements": 90,
+    "branches": 90,
+    "functions": 95,
+    "lines": 90
   }
 }

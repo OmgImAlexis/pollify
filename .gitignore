@@ -38,3 +38,7 @@ jspm_packages
 
 # For eslint
 .eslintcache
+
+dist
+.vscode
+*.tgz
