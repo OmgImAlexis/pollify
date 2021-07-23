@@ -5,6 +5,7 @@ export interface PollifyOptions {
   rate?: number;
   /** The mode of the pollFn return type. */
   mode: 'promise' | 'callback' | 'return';
+  regex?: string | RegExp;
 };
 
 /** The function to be polled. The results of `pollFn()` will be emitted. */
