@@ -93,7 +93,7 @@ export class Pollify extends EventEmitter {
       }, timeDiff);
     }
 
-    return setImmediate(this.poll);
+    return setImmediate(() => this.poll());
   }
 
   /**
