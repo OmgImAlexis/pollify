@@ -4,6 +4,9 @@
   "description": "Produces a stream of events by polling a provided function at a given rate. This rate is the minimum rate, not the exact rate (similar to setTimeout). The provided function is only polled when the previous execution has completed. This has the effect of making async calls execute in series.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prepare": "npm run build",
     "build": "tsup ./src/index.ts --dts",
