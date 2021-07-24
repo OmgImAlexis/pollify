@@ -127,6 +127,6 @@ export class Pollify<Data extends unknown, Events extends ListenerSignature<Even
   }
 };
 
-export default function<T>(options: PollifyOptions, pollFn: PollFunction<T>, ...fnArgs: PollFunctionArgs) {
-  return new Pollify(options, pollFn, ...fnArgs);
+export default function<Data extends unknown, Events extends ListenerSignature<Events>>(options: PollifyOptions, pollFn: PollFunction<Data>, ...fnArgs: PollFunctionArgs) {
+  return new Pollify<Data, Events>(options, pollFn, ...fnArgs);
 };
