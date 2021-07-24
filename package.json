@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "prepare": "npm run build",
-    "build": "tsup ./src/index.ts --dts",
+    "build": "tsup ./src/index.ts --dts-resolve",
     "test": "ts-mocha ./test/**/*.spec.ts --timeout 10000",
     "test:coverage": "nyc --reporter=html --reporter=text --reporter=text-summary npm test",
     "type:coverage": "typescript-coverage-report"
