@@ -1,16 +1,3 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "lib": [
-      "esnext"
-    ],
-    "strict": true,
-    "typeRoots": [
-      "types",
-      "node_modules/@types"
-    ],
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
-  }
+  "extends": "@tsconfig/recommended/tsconfig.json"
 }

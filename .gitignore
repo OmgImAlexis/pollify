@@ -42,3 +42,4 @@ jspm_packages
 dist
 .vscode
 *.tgz
+coverage-ts
